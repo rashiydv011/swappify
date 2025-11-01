@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swappify Logos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f3ff 0%, #e0f2fe 100%);
+        }
+        h1 {
+            text-align: center;
+            color: #1f2937;
+            margin-bottom: 40px;
+        }
+        .logo-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .logo-box {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .logo-box h2 {
+            color: #6366f1;
+            margin-bottom: 20px;
+        }
+        .logo-box img {
+            max-width: 300px;
+            height: auto;
+            margin: 20px 0;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            background: white;
+        }
+        .instructions {
+            background: #fef3c7;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #f59e0b;
+            margin-top: 40px;
+        }
+        .instructions h3 {
+            color: #92400e;
+            margin-top: 0;
+        }
+        .instructions ol {
+            color: #78350f;
+            line-height: 1.8;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b5cf6 0%, #14b8a6 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 10px 5px;
+            font-weight: bold;
+        }
+        .button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 Swappify Logos</h1>
+    
+    <div class="logo-container">
+        <!-- Circular Loop Logo -->
+        <div class="logo-box">
+            <h2>Circular Loop Logo (Current)</h2>
+            <p>The logo currently used in your app</p>
+            <img src="public/circular-loop-logo.svg" alt="Circular Loop Logo">
+            <div>
+                <a href="public/circular-loop-logo.svg" download class="button">Download SVG</a>
+            </div>
+        </div>
+        
+        <!-- Custom Swappify Logo -->
+        <div class="logo-box">
+            <h2>Custom Swappify Logo</h2>
+            <p>Detailed logo with hands, gear, and leaf</p>
+            <img src="public/swappify-logo.svg" alt="Custom Swappify Logo">
+            <div>
+                <a href="public/swappify-logo.svg" download class="button">Download SVG</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="instructions">
+        <h3>📥 How to Save as PNG/JPG:</h3>
+        <ol>
+            <li><strong>Right-click</strong> on the logo image above</li>
+            <li>Select <strong>"Save image as..."</strong></li>
+            <li>Choose PNG or JPG format</li>
+            <li>Save to your desired location</li>
+        </ol>
+        
+        <h3>📸 Alternative Method (Screenshot):</h3>
+        <ol>
+            <li>Press <strong>Windows + Shift + S</strong></li>
+            <li>Select the logo area</li>
+            <li>Paste in Paint or any image editor</li>
+            <li>Save as PNG/JPG</li>
+        </ol>
+        
+        <h3>🌐 Convert Online:</h3>
+        <ol>
+            <li>Go to: <a href="https://cloudconvert.com/svg-to-png" target="_blank">cloudconvert.com/svg-to-png</a></li>
+            <li>Upload the SVG file from <code>public/</code> folder</li>
+            <li>Convert to PNG (any size you want)</li>
+            <li>Download the PNG file</li>
+        </ol>
+    </div>
+</body>
+</html>
