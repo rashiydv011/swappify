@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug LocalStorage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; }
+        pre {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        button {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #4f46e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 SwapCircle LocalStorage Debug</h1>
+        
+        <div class="section">
+            <h2>Current User</h2>
+            <pre id="currentUser"></pre>
+        </div>
+
+        <div class="section">
+            <h2>All Items</h2>
+            <pre id="items"></pre>
+        </div>
+
+        <div class="section">
+            <h2>Actions</h2>
+            <button onclick="refreshData()">Refresh Data</button>
+            <button onclick="addTestItem()">Add Test Item (Different User)</button>
+            <button onclick="clearItems()">Clear All Items</button>
+        </div>
+    </div>
+
+    <script>
+        function refreshData() {
+            const currentUser = localStorage.getItem('swapCircleCurrentUser');
+            const items = localStorage.getItem('items');
+            
+            document.getElementById('currentUser').textContent = 
+                currentUser ? JSON.stringify(JSON.parse(currentUser), null, 2) : 'No current user';
+            
+            document.getElementById('items').textContent = 
+                items ? JSON.stringify(JSON.parse(items), null, 2) : 'No items';
+        }
+
+        function addTestItem() {
+            const items = JSON.parse(localStorage.getItem('items') || '[]');
+            const testItem = {
+                name: "Test Laptop",
+                description: "A test laptop for debugging search functionality",
+                category: "Electronics",
+                userId: "test-user-123",
+                userName: "Test User",
+                images: [],
+                createdAt: new Date().toISOString()
+            };
+            items.push(testItem);
+            localStorage.setItem('items', JSON.stringify(items));
+            alert('Test item added! Refresh the dashboard to see it.');
+            refreshData();
+        }
+
+        function clearItems() {
+            if (confirm('Are you sure you want to clear all items?')) {
+                localStorage.setItem('items', '[]');
+                alert('All items cleared!');
+                refreshData();
+            }
+        }
+
+        // Load data on page load
+        refreshData();
+    </script>
+</body>
+</html>
